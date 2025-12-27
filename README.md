@@ -29,7 +29,7 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-If PowerShell blocks activation, run (once, as Administrator):
+If PowerShell blocks activation, you can enable venv activation for the current user:
 
 ```bash
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -174,6 +174,10 @@ are sent as zeros (propeller animation may not spin).
 Gazebo assets are **not shipped** with this repository to avoid licensing ambiguity.
 If you want a Gazebo workflow, keep Gazebo models/worlds in a separate folder/repo and
 adapt the integration scripts accordingly.
+
+Platform note:
+- **ROS2/Gazebo workflows are not a supported target for Windows** in this repo. If you
+  need ROS2/Gazebo, use Linux (or WSL2 where appropriate) and keep that integration separate.
 
 ## Development
 
