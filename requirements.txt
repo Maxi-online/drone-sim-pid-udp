@@ -1,0 +1,12 @@
+freetype-py
+hsluv
+kiwisolver
+# multicopter-model
+numpy==1.24.4
+packaging
+Pillow
+PyQt5
+PyQt5-Qt5
+PyQt5-sip
+vispy
+# AirSim often fails to build; install separately after NumPy if needed.

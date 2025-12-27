@@ -1,0 +1,20 @@
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+exclude = '''
+/(\.git|\.venv|venv|env|bla_env|build|dist|__pycache__|\.eggs)/
+'''
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+exclude = ["bla_env", "venv", ".venv", "env", "build", "dist", "__pycache__"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501", "UP045"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
