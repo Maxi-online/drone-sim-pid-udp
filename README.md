@@ -14,7 +14,7 @@ The project separates the vehicle model, controller, telemetry transport and vis
 
 ## Scope
 
-The repository provides simulation and integration code. Optional bridge scripts do not establish a verified SITL/HIL setup, hardware flight behaviour or model-prediction accuracy. Telemetry payload variants and external simulator setup are documented below.
+The core UDP demo separates simulation from presentation. PyBullet provides an alternative single-process integration, while DroneKit/MAVLink and AirSim examples connect to separately configured runtimes. Telemetry payload variants and the setup for each path are documented below. Hardware flight qualification is outside the repository's simulation scope.
 
 ## Requirements
 
