@@ -205,10 +205,10 @@ Configuration lives in `pyproject.toml`.
 Licensed under **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
 See `LICENSE`.
 
-## Конфигурация, приватность и воспроизведение
+## Configuration, privacy and reproducibility
 
-Для локального UDP-сценария внешние AI-ключи не нужны. Запускайте примеры на loopback или в изолированной сети и используйте синтетическую телеметрию. Симуляция не подтверждает пригодность контроллера для реального полёта; условия эксперимента и настройки PID следует сохранять вместе с результатами.
+The local UDP scenario requires no external AI credentials. Run examples on loopback or an isolated network with synthetic telemetry. Simulation does not establish suitability for real flight; retain experiment conditions and PID settings alongside any results.
 
-Секреты храните в игнорируемых локальных файлах или переменных окружения. Безопасные примеры содержат только структуру настройки. Не передавайте секреты в командной строке и не добавляйте заполненные `.env`, приватные ключи, базы данных и логи в коммиты.
+Keep credentials in ignored local files or environment variables. Configuration examples contain structure only. Avoid passing secrets on the command line or committing populated `.env` files, private keys, databases or logs.
 
-Workflow [Secret scan](.github/workflows/secret-scan.yml) проверяет текущие файлы и входящие коммиты Gitleaks 8.30.1 с редактированием значений в выводе. Это проверка на известные шаблоны, а не подтверждение отсутствия всех возможных утечек. Удаление значения из HEAD не очищает старую историю; порядок действий описан в [SECURITY.md](SECURITY.md).
+The [Secret scan](.github/workflows/secret-scan.yml) workflow scans current files and incoming commits with Gitleaks 8.30.1 and redacts matched values. Pattern scanning cannot prove that every possible disclosure is absent. Removing a value from HEAD does not clean older history; see [SECURITY.md](SECURITY.md) for incident handling.
