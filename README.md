@@ -1,11 +1,20 @@
-# Drone Simulator (Python)
+# Quadcopter Dynamics, PID Control & UDP Telemetry
 
-This repository contains a Python quadcopter simulator with:
+**A Python simulation toolkit for multicopter dynamics, cascaded control and telemetry-driven visualization.**
 
-- A multicopter dynamics model (`src/multicopter_model/`)
-- A cascaded PID controller (position → velocity → attitude → rate)
-- UDP telemetry streaming for real-time visualization and plotting (`scripts/`)
-- Optional demos for DroneKit (SITL/MAVLink) and AirSim (separate setup)
+The project separates the vehicle model, controller, telemetry transport and visualization so they can be inspected and iterated independently. It is a control/simulation project; the core controller is classical PID rather than a trained policy.
+
+## Engineering focus
+
+- A multicopter dynamics model in [src/multicopter_model](src/multicopter_model).
+- A cascaded position → velocity → attitude → rate controller and motor mixing.
+- UDP telemetry connecting a simulator process with VisPy visualization/plotting tools.
+- A PyBullet integration wrapper for single-process experiments.
+- Separate optional DroneKit/MAVLink and AirSim examples with their own runtime requirements.
+
+## Scope
+
+The repository provides simulation and integration code. Optional bridge scripts do not establish a verified SITL/HIL setup, hardware flight behaviour or model-prediction accuracy. Telemetry payload variants and external simulator setup are documented below.
 
 ## Requirements
 
@@ -29,11 +38,7 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-If PowerShell blocks activation, you can enable venv activation for the current user:
-
-```bash
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
+If PowerShell activation is restricted, run the environment's Python explicitly, such as `venv/Scripts/python.exe scripts/simulator.py`; changing the machine's execution policy is not required.
 
 ### Linux / macOS (bash/zsh)
 
@@ -63,7 +68,7 @@ python scripts/plotter.py
 
 To change which signal is plotted, edit `scripts/plotter.py` and set:
 
-- `index = ...`
+- the numeric `index` selecting a telemetry channel.
 
 The plotter expects **extended telemetry** (20 doubles / 160 bytes).
 
@@ -199,4 +204,5 @@ Configuration lives in `pyproject.toml`.
 
 Licensed under **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
 See `LICENSE`.
+
 
